@@ -6,7 +6,7 @@ import java.util.Date;
  * @author yangshunfan 2018/12/21 23:19
  */
 public class EightQueen {
-    private static final short N = 4;
+    private static final short N = 16;
     private static int count = 0;
 
     public static void main(String[] args) {

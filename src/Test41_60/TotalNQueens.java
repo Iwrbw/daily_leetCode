@@ -4,11 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author yangshunfan 2018/12/21 22:29
- * 51. N皇后
+ * @author yangshunfan 2018/12/22 23:36
+ * 52. N皇后2
  */
-public class SolveNQueens {
-    public List<List<String>> solveNQueens(int n) {
+public class TotalNQueens {
+    public int totalNQueens(int n) {
         String[][] queens = new String[n][n];
         List<List<String>> result = new LinkedList<>();
         for (int i = 0; i < queens.length; i++) {
@@ -17,8 +17,7 @@ public class SolveNQueens {
             }
         }
         result = putQueen(queens, 0, n, result);
-        System.out.println(result);
-        return result;
+        return result.size();
     }
 
     private List<List<String>> putQueen(String[][] queens, int row, int n, List<List<String>> result) {
@@ -68,11 +67,5 @@ public class SolveNQueens {
             step++;
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        SolveNQueens solveNQueens = new SolveNQueens();
-        int n = 4;
-        solveNQueens.solveNQueens(n);
     }
 }
