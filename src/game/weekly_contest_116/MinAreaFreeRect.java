@@ -22,13 +22,13 @@ public class MinAreaFreeRect {
         for (int[] c : points){
             set.add((long)c[0] + o << 32|c[1] + o);
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0;j < n; j++) {
-                for (int k = 0; k < n; k++) {
-                    long x1 = points[j][0] - points[i][0];
-                    long y1 = points[j][1] - points[i][1];
-                    long x2 = points[k][0] - points[i][0];
-                    long y2 = points[k][1] - points[i][1];
+        for (int[] point : points) {
+            for (int[] point1 : points) {
+                for (int[] point2 : points) {
+                    long x1 = point1[0] - point[0];
+                    long y1 = point1[1] - point[1];
+                    long x2 = point2[0] - point[0];
+                    long y2 = point2[1] - point[1];
                     if (x1 * x2 + y1 * y2 != 0) {
                         continue;
                     }
@@ -39,9 +39,9 @@ public class MinAreaFreeRect {
                     if (s2 >= ret) {
                         continue;
                     }
-                    long x3 = points[i][0] + x1 + x2;
-                    long y3 = points[i][1] + y1 + y2;
-                    if (set.contains(x3 + o << 32 | y3 + o)){
+                    long x3 = point[0] + x1 + x2;
+                    long y3 = point[1] + y1 + y2;
+                    if (set.contains(x3 + o << 32 | y3 + o)) {
                         ret = s2;
                     }
                 }
