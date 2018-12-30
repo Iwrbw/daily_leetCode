@@ -16,11 +16,7 @@ public class NumsSameConsecDiff {
             String num = String.valueOf(i);
             help(num, N, K, set);
         }
-        if (1 == N) {
-            for (int i = 0; i < 10; i++) {
-                set.add(String.valueOf(i));
-            }
-        }
+
         int[] arr = new int[set.size()];
         int i = 0;
         for (String s : set) {
@@ -50,7 +46,7 @@ public class NumsSameConsecDiff {
 
     public static void main(String[] args) {
         int n = 3;
-        int k = 7;
+        int k = 1;
         NumsSameConsecDiff numsSameConsecDiff = new NumsSameConsecDiff();
         int[] num = numsSameConsecDiff.numsSameConsecDiff(n, k);
         Arrays.sort(num);
