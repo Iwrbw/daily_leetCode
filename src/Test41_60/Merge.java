@@ -71,20 +71,12 @@ public class Merge {
     /**
      * 答案
      */
-    private class IntervalComparator implements Comparator<Interval> {
-
-        @Override
-        public int compare(Interval i1, Interval i2) {
-            return i1.start - i2.start;
-        }
-
-    }
     public List<Interval> mergeAnswer(List<Interval> intervals) {
         if(intervals==null||intervals.size()<=1) {
             return intervals;
         }
         LinkedList<Interval> list = new LinkedList<>();
-        intervals.sort(new IntervalComparator());
+        intervals.sort(Comparator.comparingInt(o -> o.start));
 
         for(Interval interval : intervals){
             if(list.isEmpty() || list.getLast().end < interval.start){
@@ -107,7 +99,7 @@ public class Merge {
         list.add(interval2);
         list.add(interval3);
         list.add(interval4);
-        List<Interval> res = merge.merge(list);
+        List<Interval> res = merge.mergeAnswer(list);
         for (Interval in : res) {
             System.out.println(in.start + " " + in.end);
         }
